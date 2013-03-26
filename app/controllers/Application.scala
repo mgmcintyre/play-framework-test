@@ -9,7 +9,7 @@ import models.Task
 object Application extends Controller {
 
   def index = Action {
-    Redirect(routes.Application.tasks)
+    Redirect("http://about.me/mgmcintyre", 302)
   }
   
   val taskForm = Form(
