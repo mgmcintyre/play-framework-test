@@ -25,7 +25,6 @@ object Application extends Controller {
       val packet = new DatagramPacket(message, message.length, addr, 2003)
       sock.send(packet)
       sock.close()
-      play.api.Logger.debug("Graphite key: " + apikey + ", message: " + apikey + "." + stat + " " + value)
       true
     } catch {
       case e: Exception =>
