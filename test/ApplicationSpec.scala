@@ -20,13 +20,12 @@ class ApplicationSpec extends Specification {
       }
     }
     
-    "render the index page" in {
+    "redirect to about.me from the index page" in {
       running(FakeApplication()) {
         val home = route(FakeRequest(GET, "/")).get
         
-        status(home) must equalTo(OK)
-        contentType(home) must beSome.which(_ == "text/html")
-        contentAsString(home) must contain ("Your new application is ready.")
+        status(home) must be equalTo(TEMPORARY_REDIRECT)
+        headers(home) must havePair(LOCATION -> "http://about.me/mgmcintyre")
       }
     }
   }
