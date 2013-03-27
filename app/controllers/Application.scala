@@ -20,7 +20,7 @@ object Application extends Controller {
     }
     try {
       val sock = new DatagramSocket()
-      val addr = InetAddress.getByName("carbon.hostedgraphite.com")
+      val addr = InetAddress.getByName("alt.carbon.hostedgraphite.com")
       val message: Array[Byte] = (apikey + "." + stat + " " + value + "\n").getBytes()
       val packet = new DatagramPacket(message, message.length, addr, 2003)
       sock.send(packet)
