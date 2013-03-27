@@ -9,7 +9,7 @@ import scala.concurrent.Future
 object Application extends Controller {
 
   def index = Action {
-    val firstChoiceUrl  = "https://gablurgle.com"
+    val firstChoiceUrl  = "https://about.me/mgmcintyre"
     val secondChoiceUrl = "http://linkedin.com/in/mgmcintyre"
     Async {
       val start = System.currentTimeMillis()
