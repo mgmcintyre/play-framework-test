@@ -1,0 +1,24 @@
+@(id: Option[String], form: Form[models.Article])
+
+@main(title = "M G McIntyre | Mongo articles") {
+
+  <div class="row-fluid">
+    <div class="span12">
+    <h2>
+      @if(!id.isDefined) {
+        Add
+      } else {
+        Edit
+      } an article</h2>
+    @helper.form(action = (if(!id.isDefined) routes.Articles.create else routes.Articles.edit(id.get)), 'class -> "form-horizontal") {
+      @helper.inputText(form("title"))
+      @helper.inputText(form("publisher"))
+      @helper.textarea(form("content"))
+      <div class="form-actions">
+        <input class="btn btn-primary" type="submit">
+      </div>
+    }
+    </div>
+  </div>
+
+}

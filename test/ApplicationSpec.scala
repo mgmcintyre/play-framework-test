@@ -11,20 +11,20 @@ import play.api.test.Helpers._
  * For more information, consult the wiki.
  */
 class ApplicationSpec extends Specification {
-  
+
   "Application" should {
-    
+
     "send 404 on a bad request" in {
       running(FakeApplication()) {
-        route(FakeRequest(GET, "/boum")) must beNone        
+        route(FakeRequest(GET, "/boum")) must beNone
       }
     }
-    
+
     "redirect to about.me from the index page" in {
       running(FakeApplication()) {
         val home = route(FakeRequest(GET, "/")).get
-        
-        status(home) must be equalTo(TEMPORARY_REDIRECT)
+
+        status(home) must be equalTo (TEMPORARY_REDIRECT)
         headers(home) must havePair(LOCATION -> "http://about.me/mgmcintyre")
       }
     }

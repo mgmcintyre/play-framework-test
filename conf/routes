@@ -5,13 +5,16 @@
 # Home page
 GET     /                           controllers.Application.index
 
-# Dynamic JS
-GET    /dynamic-js/routes.js        controllers.Application.javascriptRoutes
+# Personal redirect
+GET     /redirect-me                controllers.Application.redirectMe
 
-# Tasks
-GET     /tasks                      controllers.Tasks.tasks
-POST    /tasks                      controllers.Tasks.newTask
-POST    /tasks/:id/delete           controllers.Tasks.deleteTask(id: Long)
+# Articles
+GET     /articles                   controllers.Articles.index
+GET     /articles/new               controllers.Articles.showCreationForm
+POST    /articles/new               controllers.Articles.create
+GET     /articles/:id               controllers.Articles.showEditForm(id)
+POST    /articles/:id               controllers.Articles.edit(id)
+GET     /articles/delete/:id        controllers.Articles.delete(id)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

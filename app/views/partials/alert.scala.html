@@ -1,0 +1,21 @@
+@(level: String = "error", title: String)(message: String)
+ 
+@level match {
+    
+  case "success" => {
+    <div class="alert alert-success">
+  }
+  
+  case "error" => {
+    <div class="alert alert-error">
+  }
+  
+  case "info" => {
+    <div class="alert alert-info">
+  }
+    
+}
+
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>@title</strong> @message
+</div>
