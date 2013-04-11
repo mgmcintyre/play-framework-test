@@ -20,7 +20,11 @@ object Application extends Controller {
   }
 
   def redirectMe = Action {
-
+    Logger.debug(Play.application.configuration.getString("redis.host").getOrElse("localhost"))
+    Logger.debug(Play.application.configuration.getString("redis.port").getOrElse(6379).toString)
+    Logger.debug(Play.application.configuration.getString("redis.timeout").getOrElse(2000).toString)
+    Logger.debug(Play.application.configuration.getString("redis.password").getOrElse(null))
+    
     play.api.cache.Cache.getAs[JsObject]("race.results") match {
       case json: Some[JsObject] => {
         Logger.debug("Results available in the cache")
